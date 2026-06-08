@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptXpert — Prompt Rewriting Tool</title>
+  <link rel="stylesheet" href="/dist/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>PromptXpert</h1>
+      <p class="subtitle">Turn rough prompts into structured, spec-driven sheets</p>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <h2>Your Prompt</h2>
+        <textarea id="prompt-input" placeholder="Paste your prompt here... e.g. &quot;write a poem about a cat&quot;"></textarea>
+        <div class="actions">
+          <button id="rewrite-btn" onclick="rewrite()">Rewrite</button>
+          <button id="clear-btn" onclick="clearInput()">Clear</button>
+        </div>
+      </section>
+
+      <section id="results-section" class="results-section hidden">
+        <div class="tabs">
+          <button class="tab active" data-tab="rewritten" onclick="switchTab('rewritten')">Rewritten Prompt</button>
+          <button class="tab" data-tab="analysis" onclick="switchTab('analysis')">Analysis</button>
+          <button class="tab" data-tab="spec" onclick="switchTab('spec')">Spec Sheet</button>
+        </div>
+
+        <div id="tab-rewritten" class="tab-content active">
+          <pre id="rewritten-output"></pre>
+          <button id="copy-btn" onclick="copyRewritten()">Copy to Clipboard</button>
+        </div>
+
+        <div id="tab-analysis" class="tab-content">
+          <div class="score-card" id="score-card"></div>
+          <div id="issues-list"></div>
+        </div>
+
+        <div id="tab-spec" class="tab-content">
+          <div id="spec-sections"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>PromptXpert v1.0.0 — AI Assisted Prompt Rewriting Tool</p>
+    </footer>
+  </div>
+
+  <script src="/dist/app.js"></script>
+</body>
+</html>
